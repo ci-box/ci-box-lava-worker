@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  lava-worker:
+    container_name: lava-worker0
+    hostname: worker0
+    build:
+      context: ./
+      args:
+        version: 2019.01
+        server: "lava-server"
+        extra_packages: ""
+    restart: always
+    volumes:
+      - /dev/kvm     # needed for QEMU
+      - /dev/net/tun # needed for QEMU
+    cap_add:
+      - NET_ADMIN    # needed for QEMU
