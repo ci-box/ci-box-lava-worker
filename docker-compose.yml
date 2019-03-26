@@ -11,7 +11,7 @@ services:
         server: "lava-server"
         extra_packages: ""
     restart: always
-    volumes:
+    devices:
       - /dev/kvm     # needed for QEMU
       - /dev/net/tun # needed for QEMU
     cap_add:
