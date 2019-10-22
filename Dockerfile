@@ -2,10 +2,10 @@ ARG version=latest
 FROM lavasoftware/lava-dispatcher:${version}
 
 ARG extra_packages=""
-RUN apt -q update && DEBIAN_FRONTEND=noninteractive apt-get -q -y upgrade
+RUN apt -q update || apt -q update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -q -y install software-properties-common
 RUN apt-add-repository non-free
-RUN apt -q update && DEBIAN_FRONTEND=noninteractive apt-get -q -y upgrade
+RUN apt -q update || apt -q update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -q -y install ${extra_packages} net-tools snmp snmp-mibs-downloader
 RUN download-mibs
 
