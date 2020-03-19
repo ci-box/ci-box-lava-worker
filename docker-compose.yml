@@ -7,7 +7,7 @@ services:
     build:
       context: ./
       args:
-        version: 2019.05
+        version: 2020.02
         server: "lava-server"
         extra_packages: ""
     restart: always
