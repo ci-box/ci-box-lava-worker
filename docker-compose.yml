@@ -9,10 +9,12 @@ services:
       args:
         version: 2020.02
         server: "lava-server"
-        extra_packages: ""
+        extra_packages: "lava-coordinator"
     restart: always
     devices:
       - /dev/kvm     # needed for QEMU
       - /dev/net/tun # needed for QEMU
     cap_add:
       - NET_ADMIN    # needed for QEMU
+    volumes:
+      - ./overlays/etc/lava-server/lava-coordinator/lava-coordinator.conf:/etc/lava-server/lava-coordinator/lava-coordinator.conf
