@@ -12,7 +12,7 @@ services:
         extra_packages: "lava-coordinator"
     restart: always
     devices:
-      - /dev/kvm     # needed for QEMU
+#     - /dev/kvm     # can be requested for qemu with hw accel
       - /dev/net/tun # needed for QEMU
     cap_add:
       - NET_ADMIN    # needed for QEMU
