@@ -17,4 +17,4 @@ services:
     cap_add:
       - NET_ADMIN    # needed for QEMU
     volumes:
-      - ./overlays/etc/lava-server/lava-coordinator/lava-coordinator.conf:/etc/lava-server/lava-coordinator/lava-coordinator.conf
+      - ./overlays/etc/lava-coordinator/lava-coordinator.conf:/etc/lava-coordinator/lava-coordinator.conf
