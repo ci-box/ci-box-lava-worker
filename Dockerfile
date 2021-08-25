@@ -33,7 +33,11 @@ RUN chmod a+x /usr/local/lab-scripts/eth008_control
 COPY --from=0 /opt/96boards-uart/96boardsctl/96boardsctl /usr/bin/
 
 ARG server=lava-server
+
+# Old config file ( < 2021)
 RUN echo "MASTER_URL=\"tcp://${server}:5556\"" >> /etc/lava-dispatcher/lava-slave
 RUN echo "LOGGER_URL=\"tcp://${server}:5555\"" >> /etc/lava-dispatcher/lava-slave
+
+RUN echo "URL=\"http://${server}/\"" > /etc/lava-dispatcher/lava-worker
 
 ENTRYPOINT ["/root/entrypoint.sh"]
